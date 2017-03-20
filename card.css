@@ -1,0 +1,76 @@
+/*外框*/
+.card_frame{
+    height:256px; 
+    width:192px; 
+    position:relative; 
+    overflow:hidden;
+    border:none;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: -3px 2px 6px 1.5px #808080;
+}
+/*底图*/
+.card_pic{
+    height: 116px;
+    width: inherit;
+    alignment-adjust: central;
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+}
+/*半透明黑色div 暗化底图*/
+.card_blackcover{
+    height: 116px;
+    width: inherit;
+    background-color: #000;
+    z-index: 2;
+    opacity: 0.5;
+    position: absolute;
+    top: 0px;
+}
+/*课题*/
+.card_title{
+    color: #fff;
+    width: inherit;
+    position: absolute;
+    top: 44px;
+    z-index: 3;
+    text-align: center;
+}
+/*题目文字*/
+.card_title > .lesson_title{
+    font-family: 'Microsoft YaHei';
+    font-size: 18px;
+}
+/*题目时间文字*/
+.card_title > .lesson_time{
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+    position: relative;
+    top:5px;
+    right: 1px;
+}
+/*课程的简述*/
+.lesson_description{
+    width: inherit;
+    height: 140px;
+    position: absolute;
+    top:130px;
+    z-index: 3;
+    font-family: 'Microsoft YaHei';
+}
+.des_details{
+    position: absolute;
+    text-align: left;
+    top: 0px;
+    left: 22px;
+    font-size: 14px;
+    width: 150px;
+}
+
+.des_name{
+    position: absolute;
+    right: 0px;bottom:0px;right:28px;
+    color: #3d3c3c;
+    font-size: 12px;
+}
