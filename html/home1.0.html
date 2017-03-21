@@ -2,149 +2,265 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>home2.0</title>
+	<title>home</title>
+	<link rel="stylesheet" href="lib/bootstrap.css">
+    <link rel="stylesheet" href="lib/card.css">
+	<!--
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	-->
 	<script src="lib/jquery-2.1.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="lib/all.css">
-    <script type="text/javascript">
-        $(document).ready(function() {
-            for(var i=1;i<=5;i++){
-                fun(i);
-            }    
-        });
-        function fun(num){
-            $('#navli'+num).mouseenter(function() {  
-              $('#nav_dropdown'+num).removeClass("hide").addClass("show");
-           }).mouseleave(function() {  
-              $('#nav_dropdown'+num).removeClass("show").addClass("hide");
-           });
+	<script src="lib/bootstrap.js"></script>
+
+    <style>
+        /*导航栏样式*/
+        .add_nav{
+            background-color: #000;
+            color: #f00;
+            padding-left: 30px;
+            height: 61px;
+            border:none;
+            border-radius: 0;
+            margin: 0;
+            width: 1349px;
         }
+        /*导航栏中主标题字体样式*/
+        .navbar-default .navbar-nav > li > a {
+          font-family: 'Microsoft YaHei';
+          color: #fff;
+          font-size: 15px;
+          padding-top:0; 
+          margin-top: 18px;
+        }
+        .navbar-default .navbar-nav > li{
+            padding-left: 18px;
+            padding-right: 18px;
+            height: 61px;
+        }
+         /*导航栏中主标题 .open 相关样式 （应该不需要）*/
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+              color: #fff;
+              background-color: #312e2e;
+        }
+        /*导航栏中主标题 鼠标悬浮/点击 样式*/
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+          color: #fff;
+        }
+        .navbar-default .navbar-nav > li:hover,
+        .navbar-default .navbar-nav > li:focus {
+            background-color: #312e2e;
+        }
+        /*登陆注册字样*/
+        .add_logsign{
+            font-family: 'Microsoft YaHei';
+            color: #fff;
+            font-size: 15px;
+            
+        }
+        .add_logsign:hover,.add_logsign:focus{
+            color: #fff;
+            text-decoration: none;
+        }
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+          color: #fff;
+        }
+        .dropdown-menu{
+            background-color: #000;
+            background: #000 0.7;
+            opacity: 0.7;
+        }
+        .li_a{
+            padding-top: 10px; 
+        }
+        .dropdown-menu >li > a{
+            color: #fff;
+            font-family: 'Microsoft YaHei';
+        }
+        .dropdown-menu .divider {
+          margin: 0px;
+          background-color: #312e2e;
+        }
+        
+        /*推荐课程文字*/
+        #recommand{
+            width: inherit;
+            text-align: center;
+            font-family: 'Microsoft YaHei';
+            font-size: 25px;
+            margin-top: 60px;
+            margin-bottom: 22px;
+            
+        }
+        
+        
+        /*卡片*/
+        .card_frame{
+            /*上右下左*/
+            margin: 42px 21px 0px 21px;
+            float: left;
+        }
+        .card_group{
+            width: inherit;
+            padding-left: 206px;
+            margin: 0px;
+        }
+        /*页脚*/
+        .footer{
+            position: absolute;
+            bottom: 0px;
+            width: inherit;
+            background-image: url(img/footerbg.png) ;
+            height: 144px;
+        }
+        #footer_logo{
+            position: absolute;
+            left: 64px;
+            top: 34px;
+        }
+        #footer_links{
+            position: relative;
+            text-align: right;
+            padding-right: 64px;
+            padding-top: 34px;
+        }
+        #footer_links > div > a{
+            font-size: 15px;
+            font-family: 'Microsoft YaHei';
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        /*搜索框*/
+        .search{
+            width: 280px;
+            height: 20px;
+            border:2px solid #ada6a6;
+            border-radius: 20px;
+            position: absolute;
+            left: 825px;
+            top: 330px;
+        }
+        .input-group-addon{
+            border-radius: 20px;
+            background-color: transparent;
+            border: none;
+
+        }
+        .form-control{
+            border-radius: 20px;
+            background-color: transparent;
+            border: none;
+            color: #fff;
+        }
+        i{
+            color: #fff;
+            font-size: 20px;
+            opacity: initial;
+        }
+    </style>
+    <script>
+        $(function () {
+            $(".dropdown").mouseover(function () {
+                $(this).addClass("open");
+            });
+            $(".dropdown").mouseleave(function () {
+                $(this).removeClass("open");
+            })
+        })
+        $('.dropdown').click(function () { alert("123"); })
     </script>
 </head>
-<body style="margin:0px;padding: 0px; ">
-    <div class="nav_out">
-        <nav class="navigation">
-            <ul class="nav_ul">
-                <li class="navli">
-                    <div class="nav_lidiv">
-                    <a href="#">首页</a>
-                    </div>
-                </li>
+<body>
 
-                <li class="navli" id="navli1">
-                    <div class="nav_lidiv">
-                    <a href="#">课程介绍</a>
-                    </div>
-                    <div class="nav_dropdown hide" id="nav_dropdown1">
-                        <ul>
-                            <li style="height: 10px;"></li>
-                            <li class="dropdown_li"><a href="#">教学简介</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">教学大纲</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">申报资料</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">历史沿革</a></li>
-                        </ul>
-                    </div>
-                </li>
+<nav class="navbar navbar-default add_nav" role="navigation">
+	<div class="container-fluid">
+	<div>
+		<ul class="nav navbar-nav">
+			<li class="dropdown">
+                <a href="www.baidu.com">首页</a>
+            </li>
 
-                <li class="navli"  id="navli2">
-                    <div class="nav_lidiv">
-                    <a href="#">教学团队</a>
-                    </div>
-                    <div class="nav_dropdown hide" id="nav_dropdown2">
-                        <ul>
-                            <li style="height: 10px;"></li>
-                            <li class="dropdown_li"><a href="#">学院结构</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">教学队伍</a></li>
-                        </ul>
-                    </div>
-                </li>
+			<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">课程介绍</a>
+                <ul class="dropdown-menu">
+					<li class="li_a"><a href="www.baidu.com">教学简介</a></li>
+                    <li class="divider"></li>
+					<li class="li_a"><a href="#">教学大纲</a></li>
+                    <li class="divider"></li>
+					<li class="li_a"><a href="#">申报资料</a></li>
+                    <li class="divider"></li>
+					<li class="li_a"><a href="#">历史沿革</a></li>
+				</ul>
+            </li>
 
-                <li class="navli" id="navli3">
-                    <div class="nav_lidiv">
-                    <a href="#">教学资源</a>
-                    </div>
-                    <div class="nav_dropdown hide" id="nav_dropdown3">
-                        <ul>
-                            <li style="height: 10px;"></li>
-                            <li class="dropdown_li"><a href="#">教学课件</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">图片资源</a></li>
-                        </ul>
-                    </div>
-                </li>
+            <li class="dropdown">
+                <a href="nav.html" class="dropdown-toggle" data-toggle="dropdown">教学团队</a>
+                <ul class="dropdown-menu">
+					<li class="li_a"><a href="www.baidu.com">学院结构</a></li>
+                    <li class="divider"></li>
+					<li class="li_a"><a href="#">教学队伍</a></li>
+				</ul>
+            </li>
 
-                <li class="navli" id="navli4">
-                    <div class="nav_lidiv">
-                    <a href="#">实践环节</a>
-                    </div>
-                    <div class="nav_dropdown hide" id="nav_dropdown4">
-                        <ul>
-                            <li style="height: 10px;"></li>
-                            <li class="dropdown_li"><a href="#">实验大纲</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">实验内容</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">实验视频</a></li>
-                        </ul>
-                    </div>
-                </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">教学资源</a>
+                <ul class="dropdown-menu">
+					<li class="li_a"><a href="www.baidu.com">教学课件</a></li>
+                    <li class="divider"></li>
+					<li class="li_a"><a href="#">教学队伍</a></li>
+				</ul>
+            </li>
 
-                <li class="navli" id="navli5">
-                    <div class="nav_lidiv">
-                    <a href="#">教学成果</a>
-                    </div>
-                    <div class="nav_dropdown hide" id="nav_dropdown5">
-                        <ul>
-                            <li style="height: 10px;"></li>
-                            <li class="dropdown_li"><a href="#">科研立项</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">获奖情况</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">作品展示</a></li>
-                        </ul>
-                    </div>
-                </li>
-                </li>
-            </ul>
-            <img src="img/Database.png" alt="Database.png" style="height:22px;  margin-top: 18px; margin-left: 66px;float: left;"/>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">实践环节</a>
+                <ul class="dropdown-menu">
+					<li class="li_a"><a href="www.baidu.com">实验大纲</a></li>
+                    <li class="divider"></li>
+					<li class="li_a"><a href="#">实验内容</a></li>
+                    <li class="divider"></li>
+					<li class="li_a"><a href="#">实验视频</a></li>
+				</ul>
+            </li>
 
-            <div>
-                <div class="log_div">
-                    <a href="#">注册</a>
-                </div>
-                <div class="log_div">
-                    <a href="#">登陆</a>
-                </div>
-            </div>
-        </nav>
-    </div>
-
-
-
+			<li class="dropdown">
+				<a href="www.baidu.com" class="dropdown-toggle" data-toggle="dropdown">
+					教学成果
+				</a>
+				<ul class="dropdown-menu">
+					<li class="li_a"><a href="www.baidu.com">科研立项</a></li>
+                    <li class="divider"></li>
+					<li class="li_a"><a href="#">获奖情况</a></li>
+                    <li class="divider"></li>
+					<li class="li_a"><a href="#">作品展示</a></li>
+				</ul>
+			</li>
+		</ul>
+        <img src="img/Database.png" alt="Database.png" style="height:22px;  margin-top: 19px; margin-left: 54px;"/>
+        <ul class="nav navbar-nav pull-right" style="right: 0;">
+            <li style="padding-left: 10px;padding-right: 10px;"><a href="#">登陆</a></li>
+            <li style="padding-left: 10px;padding-right: 10px;"><a href="#">注册</a></li>
+        </ul>
+        </div>
+        
+	</div>
+</nav>
     <!--封面图-->
     <div>
         <img src="img/earth.png" alt="earth" 
-            style="position:absolute;height: 280px;left: 200px;top: 130px;z-index: 1;"/>
+            style="position:absolute;height: 280px;left: 200px;top: 130px;"/>
         <!--Search-->
-        <form>
-            <div class="input_div search">
-                <input class="input_type" type="text" placeholder="Email address">
-                <img src="img/search.png" class="input_icon">
-            </div>
-        </form>
-        <!--
         <form>
 	        <div class="input-group margin-bottom-sm search">
                 <input class="form-control" type="text" placeholder="Email address">
                 <span class="input-group-addon"><i class="fa fa-search fa-lg"></i></span>
             </div>
 	    </form>
-        -->
 
-        <img src="img/bg.png" alt="background" style="position:absolute;left:0px;top:61px;z-index:-1;width: 1349px;height:500px;"/>
+        <img src="img/bg.png" alt="background" style="position:absolute;left:0px;top:61px;z-index:-1;width: 1349px;height:500px;z-index: -1;"/>
     </div>
     <!--灰色背景-->
     <div style="position:absolute;top:561px;height: 1000px;width: 1349px;background-color: #e1e1e1;">
@@ -323,8 +439,8 @@
                 <div style="position: relative;top: 6px;"><a href="#">意见反馈</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">法律条款</a></div>
             </div>
         </div>
-        <hr style="border: 0.1px solid #222222">
-        <div style="text-decoration:none ;font-size: 12px;margin:0px;width: inherit;text-align: center;color: #808080;">
+        <hr style="border: 0.1px solid #312e2e">
+        <div style="text-decoration: ;font-size: 12px;position: relative;bottom:18px;margin:0px;width: inherit;text-align: center;color: #808080;">
             粤ICP备05008833号&nbsp;&nbsp;广州市番禺区广州大学城外环西路100号(510006)</div>
     </div>
 
