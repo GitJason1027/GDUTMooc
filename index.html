@@ -2,9 +2,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>home2.0</title>
+	<title>home3.0</title>
 	<script src="lib/jquery-2.1.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="lib/all.css">
+
     <script type="text/javascript">
         $(document).ready(function() {
             for(var i=1;i<=5;i++){
@@ -32,18 +33,18 @@
 
                 <li class="navli" id="navli1">
                     <div class="nav_lidiv">
-                    <a href="#">课程介绍</a>
+                    <a href="p1_teach_introduction.html">课程介绍</a>
                     </div>
                     <div class="nav_dropdown hide" id="nav_dropdown1">
                         <ul>
                             <li style="height: 10px;"></li>
-                            <li class="dropdown_li"><a href="#">教学简介</a></li>
+                            <li class="dropdown_li"><a href="p1_teach_introduction.html#p1_section1">教学简介</a></li>
                             <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">教学大纲</a></li>
+                            <li class="dropdown_li"><a href="p1_teach_introduction.html#p1_section2">教学大纲</a></li>
                             <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">申报资料</a></li>
+                            <li class="dropdown_li"><a href="p1_teach_introduction.html#p1_section3">申报资料</a></li>
                             <li class="divider"></li>
-                            <li class="dropdown_li"><a href="#">历史沿革</a></li>
+                            <li class="dropdown_li"><a href="p1_teach_introduction.html#p1_section4">历史沿革</a></li>
                         </ul>
                     </div>
                 </li>
@@ -123,28 +124,34 @@
     </div>
 
 
-
     <!--封面图-->
     <div>
         <img src="img/earth.png" alt="earth" 
-            style="position:absolute;height: 280px;left: 200px;top: 130px;z-index: 1;"/>
+            style="position:absolute;height: 280px;left: 200px;top: 130px;z-index: 1;visibility: hidden;"/>
+
+        <img src="img/bigdata@1x.png" alt="bigdata" style="position: absolute;left: 825px;top: 230px;"/>
         <!--Search-->
         <form>
             <div class="input_div search">
                 <input class="input_type" type="text" placeholder="Email address">
-                <img src="img/search.png" class="input_icon">
+                <img src="img/search.png" class="input_icon" alt="search">
             </div>
         </form>
-        <!--
-        <form>
-	        <div class="input-group margin-bottom-sm search">
-                <input class="form-control" type="text" placeholder="Email address">
-                <span class="input-group-addon"><i class="fa fa-search fa-lg"></i></span>
-            </div>
-	    </form>
-        -->
 
-        <img src="img/bg.png" alt="background" style="position:absolute;left:0px;top:61px;z-index:-1;width: 1349px;height:500px;"/>
+        <canvas id="space" style="
+            position:absolute;
+            left:0px;
+            top:61px;
+            z-index:-1;
+            width:1349px;
+            height:500px;">
+        </canvas>
+
+        <script src="lib/dynamic_stars.js"></script>
+        
+        <!--
+        <img src="img/bg.png" alt="background" style="position:absolute;left:0px;top:61px;z-index:-1;width:1349px;height:500px;"/>
+        -->
     </div>
     <!--灰色背景-->
     <div style="position:absolute;top:561px;height: 1000px;width: 1349px;background-color: #e1e1e1;">

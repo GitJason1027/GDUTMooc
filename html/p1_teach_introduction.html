@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <script src="lib/jquery-2.1.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="lib/all.css">
+        <title>-课程介绍</title>
+        <script>
+            $(document).ready(function () {
+                /*导航栏*/
+                for (var i = 1; i <= 5; i++) {
+                    fun(i);
+                }
+
+                /*右侧浮动导航栏*/
+                $(window).scroll(function (event) {
+                    var winPos = $(window).scrollTop() + $(window).height() / 4;
+                    
+                    if ($(window).scrollTop() + 30 >= 400) {
+                        $('#rightnav').removeClass('rightnav_static');
+                        $('#rightnav').addClass('rightnav_dynamic');
+
+                    } else {
+                        $('#rightnav').addClass('rightnav_static');
+                        $('#rightnav').removeClass('rightnav_dynamic');
+                    }
+
+                    var h1 = $('#p1_section1').offset().top + $('#p1_section1').height();
+                    var h2 = $('#p1_section2').offset().top + $('#p1_section2').height();
+                    var h3 = $('#p1_section3').offset().top + $('#p1_section3').height();
+                    var h4 = $('#p1_section4').offset().top + $('#p1_section4').height();
+
+                    if (winPos <= h1) {
+                        changeClass(1);
+                    } else if (winPos <= h2 && winPos > h1) {
+                        changeClass(2);
+                    } else if (winPos <= h3 && winPos > h2) {
+                        changeClass(3);
+                    }
+                    else if (winPos <= h4 && winPos > h3) {
+                        changeClass(4);
+                    }
+
+                });
+
+                /*导航栏的函数*/
+                function fun(num) {
+                    $('#navli' + num).mouseenter(function () {
+                        $('#nav_dropdown' + num).removeClass("hide").addClass("show");
+                    }).mouseleave(function () {
+                        $('#nav_dropdown' + num).removeClass("show").addClass("hide");
+                    });
+                }
+                /*浮动导航栏的函数*/
+                function changeClass(num) {
+                    for (var i = 1; i <= 4; i++) {
+                        if (i == num) $('#a' + num).addClass('rnav_active');
+                        else $('#a' + i).removeClass('rnav_active');
+                    }
+                }
+
+            });
+        </script>
+        <style>
+            .out_layout{
+                margin:0px;
+                position:absolute;
+                top:361px;
+                width: 1349px;
+            }
+            .inner_layout{
+                position: relative;
+                top: 20px;
+                left: 20px;
+                width: 840px;
+            }
+            /*浮动导航栏属性*/
+            
+            #rightnav{
+                z-index: 2;
+                background-color: #000;
+                opacity: 0.8; 
+                width: 200px;
+                border-radius: 10px;
+            }
+            #rightnav > ul{
+                margin: 0px;
+                padding: 0px;
+                display: inline;
+            }
+            #rightnav > ul > li{
+                padding: 10px;
+                font-size: 30px;
+                display: block;
+                border-radius: 10px;
+                border-bottom: 1px solid #222222;
+            }
+            
+            #rightnav > ul > li > a{
+                font-family: 'Microsoft YaHei';
+                font-size: 20px;
+                color: #fff;
+                text-decoration: none;
+            }
+            .rnav_active{
+                position: relative;
+                right: 10px;
+                width: 200px;
+                background-color: #1ec317;
+                border-bottom: 1px solid #1ec317;
+             }
+            .rightnav_static{
+                position: absolute;
+                right: 50px;
+                top: 411px;
+             }
+             .rightnav_dynamic{
+                 position: fixed;
+                 right: 50px;
+                 top: 30px;
+             }
+            /*子模块公共属性*/
+            .section_property{
+                padding: 10px 20px 20px 20px;
+                box-shadow: -3px 2px 6px 1.5px #808080;
+                border-radius: 10px;
+                background-color: #f5f5f5;
+                width: 800px;
+                font-family: 'Microsoft YaHei';
+                margin-top: 30px;
+            }
+        </style>
+    </head>
+    <body style="margin:0px;padding: 0px; background-color: #e1e1e1;">
+    <div class="nav_out">
+        <nav class="navigation">
+            <ul class="nav_ul">
+                <li class="navli">
+                    <div class="nav_lidiv">
+                    <a href="home3.0.html">首页</a>
+                    </div>
+                </li>
+
+                <li class="navli" id="navli1">
+                    <div class="nav_lidiv">
+                    <a href="#">课程介绍</a>
+                    </div>
+                    <div class="nav_dropdown hide" id="nav_dropdown1">
+                        <ul>
+                            <li style="height: 10px;"></li>
+                            <li class="dropdown_li"><a href="#p1_section1">教学简介</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown_li"><a href="#p1_section2">教学大纲</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown_li"><a href="#p1_section3">申报资料</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown_li"><a href="#p1_section4">历史沿革</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="navli"  id="navli2">
+                    <div class="nav_lidiv">
+                    <a href="#">教学团队</a>
+                    </div>
+                    <div class="nav_dropdown hide" id="nav_dropdown2">
+                        <ul>
+                            <li style="height: 10px;"></li>
+                            <li class="dropdown_li"><a href="#">学院结构</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown_li"><a href="#">教学队伍</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="navli" id="navli3">
+                    <div class="nav_lidiv">
+                    <a href="#">教学资源</a>
+                    </div>
+                    <div class="nav_dropdown hide" id="nav_dropdown3">
+                        <ul>
+                            <li style="height: 10px;"></li>
+                            <li class="dropdown_li"><a href="#">教学课件</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown_li"><a href="#">图片资源</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="navli" id="navli4">
+                    <div class="nav_lidiv">
+                    <a href="#">实践环节</a>
+                    </div>
+                    <div class="nav_dropdown hide" id="nav_dropdown4">
+                        <ul>
+                            <li style="height: 10px;"></li>
+                            <li class="dropdown_li"><a href="#">实验大纲</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown_li"><a href="#">实验内容</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown_li"><a href="#">实验视频</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="navli" id="navli5">
+                    <div class="nav_lidiv">
+                    <a href="#">教学成果</a>
+                    </div>
+                    <div class="nav_dropdown hide" id="nav_dropdown5">
+                        <ul>
+                            <li style="height: 10px;"></li>
+                            <li class="dropdown_li"><a href="#">科研立项</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown_li"><a href="#">获奖情况</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown_li"><a href="#">作品展示</a></li>
+                        </ul>
+                    </div>
+                </li>
+                </li>
+            </ul>
+            <img src="img/Database.png" alt="Database.png" style="height:22px;  margin-top: 18px; margin-left: 66px;float: left;"/>
+
+            <div>
+                <div class="log_div">
+                    <a href="#">注册</a>
+                </div>
+                <div class="log_div">
+                    <a href="#">登陆</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <img src="img/p1_earthstar.png" alt="background" style="position:absolute;left:0px;top:61px;z-index:-1;width:1349px;height:300px;"/>
+    
+        <!--浮动导航栏-->
+        <div id="rightnav" class="rightnav_static">
+            <ul>
+                <li id="a1" class="rnav_active"><a  href="#p1_section1">教学简介</a></li>
+                <li id="a2"><a  href="#p1_section2">教学大纲</a></li>
+                <li id="a3"><a  href="#p1_section3">申报资料</a></li>
+                <li id="a4"><a  href="#p1_section4">历史沿革</a></li>
+            </ul>
+        </div>
+    <div class="out_layout">
+        <div class="inner_layout">
+        <!--各个子部分-->
+        <div id="p1_section1" class="section_property">
+            <h1>教学简介</h1>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据库(Database)是按照数据结构来组织、存储和管理数据的仓库，它产生于距今六十多年前，随着信息技术和市场的发展，特别是二十世纪九十年代以后，数据管理不再仅仅是存储和管理数据，而转变成用户所需要的各种数据管理的方式。数据库有很多种类型，从最简单的存储有各种数据的表格到能够进行海量数据存储的大型数据库系统都在各个方面得到了广泛的应用。
+                在信息化社会，充分有效地管理和利用各类信息资源，是进行科学研究和决策管理的前提条件。数据库技术是管理信息系统、办公自动化系统、决策支持系统等各类信息系统的核心部分，是进行科学研究和决策管理的重要技术手段。
+            </div>
+        </div>
+        <div id="p1_section2" class="section_property">
+            <h1>教学大纲</h1>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据库(Database)是按照数据结构来组织、存储和管理数据的仓库，它产生于距今六十多年前，随着信息技术和市场的发展，特别是二十世纪九十年代以后，数据管理不再仅仅是存储和管理数据，而转变成用户所需要的各种数据管理的方式。数据库有很多种类型，从最简单的存储有各种数据的表格到能够进行海量数据存储的大型数据库系统都在各个方面得到了广泛的应用。
+                在信息化社会，充分有效地管理和利用各类信息资源，是进行科学研究和决策管理的前提条件。数据库技术是管理信息系统、办公自动化系统、决策支持系统等各类信息系统的核心部分，是进行科学研究和决策管理的重要技术手段。
+            </div>
+        </div>
+        <div id="p1_section3" class="section_property">
+            <h1>申报资料</h1>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据库(Database)是按照数据结构来组织、存储和管理数据的仓库，它产生于距今六十多年前，随着信息技术和市场的发展，特别是二十世纪九十年代以后，数据管理不再仅仅是存储和管理数据，而转变成用户所需要的各种数据管理的方式。数据库有很多种类型，从最简单的存储有各种数据的表格到能够进行海量数据存储的大型数据库系统都在各个方面得到了广泛的应用。
+                在信息化社会，充分有效地管理和利用各类信息资源，是进行科学研究和决策管理的前提条件。
+            </div>
+        </div>
+        <div id="p1_section4" class="section_property">
+            <h1>历史沿革</h1>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据库(Database)是按照数据结构来组织、存储和管理数据的仓库，它产生于距今六十多年前，随着信息技术和市场的发展，特别是二十世纪九十年代以后，数据管理不再仅仅是存储和管理数据，而转变成用户所需要的各种数据管理的方式。数据库有很多种类型，从最简单的存储有各种数据的表格到能够进行海量数据存储的大型数据库系统都在各个方面得到了广泛的应用。
+                在信息化社会，充分有效地管理和利用各类信息资源，是进行科学研究和决策管理的前提条件。数据库技术是管理信息系统、办公自动化系统、决策支持系统等各类信息系统的核心部分，是进行科学研究和决策管理的重要技术手段。
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据库(Database)是按照数据结构来组织、存储和管理数据的仓库，它产生于距今六十多年前，随着信息技术和市场的发展，特别是二十世纪九十年代以后，数据管理不再仅仅是存储和管理数据，而转变成用户所需要的各种数据管理的方式。数据库有很多种类型，从最简单的存储有各种数据的表格到能够进行海量数据存储的大型数据库系统都在各个方面得到了广泛的应用。
+                在信息化社会，充分有效地管理和利用各类信息资源，是进行科学研究和决策管理的前提条件。数据库技术是管理信息系统、办公自动化系统、决策支持系统等各类信息系统的核心部分，是进行科学研究和决策管理的重要技术手段。
+            </div>   
+        </div>
+        </div>
+
+    <div style="height: 100px;margin-bottom: 50px;margin-top: 50px;"></div>
+
+        <!--页尾-->
+        <div class="footer" style="display: block;">
+            <div style="margin:0px;width: inherit;height:90px;">
+                <div id="footer_logo">
+                    <img src="img/Database.png" alt="logo"/><br>
+                    <span style="color: #fff;font-family: 'Microsoft YaHei';color: #e1e1e1;">
+                        专注大学生数据库教学20年，致力于提供最优质的课程<span class="glyphicon glyphicon-user"></span></span>
+                </div>
+                <div id="footer_links">
+                    <div><a href="#">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">联系我们</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">常见问题</a></div>
+                
+                    <div style="position: relative;top: 6px;"><a href="#">意见反馈</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">法律条款</a></div>
+                </div>
+            </div>
+            <hr style="border: 0.1px solid #222222">
+            <div style="text-decoration:none ;font-size: 12px;margin:0px;width: inherit;text-align: center;color: #808080;">
+                粤ICP备05008833号&nbsp;&nbsp;广州市番禺区广州大学城外环西路100号(510006)</div>
+        </div>
+    </div>
+    </body>
+</html>
