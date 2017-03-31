@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <script src="lib/jquery-2.1.1.min.js"></script>
+        <title>video</title>
+        <style>
+            .videodiv{
+                width: 1349px;
+            }
+            #mod_player{
+                display: inline;
+                float: left;
+            }
+            embed{
+                width: 950px;
+                height: 500px;
+            }
+            .nav{
+                background-color: #535252;
+                border: ipx solid #00ff21;
+                margin: 0px;
+                width: 399px;
+                float: right;
+                height: 500px;
+            }
+            .nav>ul{
+                list-style-type:none;
+                width: 399px;
+                margin: 0px;
+                padding: 0px;
+            }
+            .nav>ul>li{
+                padding: 10px 0px 10px 10px;
+                text-align: center;
+                display: block;
+                background-color: #231b23;
+                width: 389px;
+                border-bottom: 1px solid #535252;
+            }
+            .nav>ul>li:hover,
+            .nav>ul>li:focus{
+                background-color: #21133b;
+            }
+            .nav>ul>li>a{
+                display: block;
+                font-family: 'Microsoft YaHei';
+                font-size: 20px;
+                color: #fff;
+                text-decoration: none;
+            }
+            
+            .video_header{
+                padding: 20px 50px;
+                text-align: left;
+                background-color: #212121;
+                color: #fff;
+                font-family: 'Microsoft YaHei';
+                font-size: 20px;
+            }
+            .video_bg{
+                background-color: #000;
+                height: 500px;
+            }
+            
+            .video_comment{
+                position: relative;
+                color: #fff;
+                background-color: #fbfbfb;
+                width: 800px;
+                height: 600px;
+                float: left;
+                left:160px;
+                margin-top: 30px;
+                border-radius: 10px;
+            }
+            .video_description{
+                position: relative;
+                color: #fff;
+                background-color: #fbfbfb;
+                width: 200px;
+                height: 200px;
+                float: right;
+                right: 160px;
+                margin-top: 30px;
+                border-radius: 10px;
+            }
+            .comment_header{
+                padding: 15px;
+                background-color: #808080;
+                font-family: 'Microsoft YaHei';
+                border-radius: 10px 10px 0px 0px;
+            }
+            .description_header{
+                padding: 15px;
+                background-color: #808080;
+                font-family: 'Microsoft YaHei';
+                border-radius: 10px 10px 0px 0px;
+            }
+            
+            .user_comment{
+                margin: 10px 30px;
+                border: 1px solid #233;
+                padding: 5px; 
+                background-color: #e6e6e6;   
+                border: 2px solid #808080;
+                border-radius: 5px;
+            }
+            .user_pic{
+                width:75px;
+                height:75px;
+            }
+            .user_pic_border{
+                border-radius: 5px;
+                box-shadow:0px 0px 1px 1px #808080 inset;
+                background-color: #fff;
+                padding: 5px;
+                width: 75px;
+                height: 75px;
+                float: left;
+                display: inline;
+            }
+            .user_details{
+                margin-left: 95px;
+                display: block ;
+            }
+            .user_details > a {
+                text-decoration: none;
+                color: #2651c5;
+                font-family: 'Microsoft YaHei';
+            }
+            .user_comment_words{
+                margin-top: 10px;
+                display: block;
+                color: #000;
+                font-family: 'Microsoft YaHei';
+                font-size: 14px;
+                background-color: #fbfbfb;
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow:0px 0px 2px 1px #808080 inset;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                //点击右边列表的某个链接，视频播放切换
+               $('#mod_videolist li').find('a').each(function (i, elem) {
+                    $(this).click(function () {
+                        $('#mod_player > embed').remove();
+                        var str = '<embed id="evideo" src="' + $(this).attr('href') + '" allowfullscreen="true" quality="high" width="650" height="472" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">';
+                        $('#mod_player').html(str);
+                        return false;
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body style="margin: 0px;padding: 0px;background-color: #e1e1e1">
+        <div class="videodiv">
+            <div class="video_header">第一章&nbsp;1-1&nbsp;数据库入门</div>
+            <div class="video_bg">
+                <div id="mod_player">
+                    <embed src='http://player.youku.com/player.php/sid/XMjY2OTA4OTU4MA==/v.swf' allowFullScreen='true' quality='high' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'>
+                </div>
+                <div class="nav">
+                    <div style="background-color: #000;padding: 20px;color: #fff;">第一章&nbsp;数据库入门</div>
+                    <ul id="mod_videolist">
+                        <li><a id="v1" href="http://player.youku.com/player.php/sid/XMjY2OTA4OTU4MA==/v.swf">视频1</a></li>
+                        <li><a id="v2" href="http://player.youku.com/player.php/sid/XMjY2MDg5MDYwOA==/v.swf">视频2</a></li>
+                        <li><a id="v3" href="http://player.youku.com/player.php/sid/XMTYxNzg5MDI5Ng==/v.swf">视频3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="width: 1349px;">
+            <div class="video_comment">
+                <div class="comment_header">
+                    <b>评论区</b>
+                </div>
+
+                <div class="user_comment" id="user_id1">
+
+                    <div class="user_pic_border">
+                        <img class="user_pic" src="img/user_picture.jpg" alt="用户头像" >
+                    </div>
+
+                    <div class="user_details">
+                        <a href="#" style="text-decoration: none;"><b><u>用户04897465</u></b></a>
+                        <span class="user_comment_words">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据库(Database)是按照数据结构来组织、存储和管理数据的仓库，它产生于距今六十多年前，随着信息技术和市场的发展，特别是二十世纪九十年代以后，数据管理不再仅仅是存储和管理数据，而转变成用户所需要的各种数据管理的方式。数据库有很多种类型，从最简单的存储有各种数据的表格到能够进行海量数据存储的大型数据库系统都在各个方面得到了广泛的应用。
+                在信息化社会，充分有效地管理和利用各类信息资源，是进行科学研究和决策管理的前提条件。数据库技术
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video_description">
+                <div class="description_header">
+                    <b>课程资料</b>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>
